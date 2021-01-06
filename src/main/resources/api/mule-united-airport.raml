@@ -1,0 +1,62 @@
+#%RAML 1.0
+title: Mule United Airport API
+
+
+/flights:
+  get:
+    queryParameters:
+      destibation:
+        enum:
+          - SFO
+          - LAX
+          - CLE
+          - PDX 
+    responses:
+      200:
+        body:
+          application/json:
+           type: object
+  post:
+    body:
+      application/json:
+        type: object
+    responses:
+      200:
+        body:
+          application/json:
+           example:
+                message: Flight added (but not really)
+      500:
+        body:
+          application/json:
+            example:
+                message: Flight Not added (server error )
+  put:
+    body:
+      application/json:
+        type: object
+    responses:
+      200:
+        body:
+          application/json:
+            example:
+                message: Flight updated (but not really)
+  
+  /{ID}:
+    get:
+      responses:
+        200:
+          body:
+            application/json:
+              type: object
+  
+  delete:
+    responses:
+      200:
+        body:
+          application/json:
+            example:
+                message: Flight deleted (but not really)
+
+
+    
